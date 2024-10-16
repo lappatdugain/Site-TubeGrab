@@ -1,0 +1,42 @@
+# Ignore directory in root
+bin/
+include/
+lib/
+lib64
+
+# Visual Studio and others ide
+.vs/
+.fleet/
+.idea/
+.venv/
+.vscode/
+.lapce/
+
+# Ignore specific files in root
+*.log
+pyvenv.cfg
+
+# Ignore specific directory in web-site and Discord-bot
+/TubeGrab/__pycache__/
+/TubeGrab/Log/
+/documentations/
+/test/
+# Compiled source #
+*.com
+*.class
+*.dll
+*.exe
+*.o
+*.so
+
+# Packages #
+*.7z
+*.dmg
+*.gz
+*.iso
+*.jar
+*.rar
+*.tar
+*.zip
+
+
