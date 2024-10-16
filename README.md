@@ -18,15 +18,13 @@ TubeGrabe is a Flask-based web application that allows users to download YouTube
 1. Clone the repository:
 
     ```bash
-    git clone https://github.com/lappatdugain/yousound-download.git
-    cd yousound-download
+    git clone https://github.com/lappatdugain/https://github.com/lappatdugain/Site-TubeGrab.git
+    cd Site-TubeGrab
     ```
 
 2. Install dependencies :
     ```bash
-    pip install flask
-    pip install pytube
-    pip install moviepy
+    pip install -r requirements.txt 
     ```
 
 3. Run the application:
@@ -37,7 +35,7 @@ TubeGrabe is a Flask-based web application that allows users to download YouTube
 
 ## Usage
 
-1. Open your web browser and go to `http://exemple.com`.
+1. Open your web browser and go to `currently undefined`.
 2. Enter the URL of the YouTube video you want to download.
 3. Choose the desired format (MP3 or MP4).
 4. Click on the "Convert" button to start the download.
@@ -56,6 +54,10 @@ The HTML template for the main page. It includes:
 - A form to submit the YouTube URL and select the conversion type (MP3 or MP4).
 - Information about the service in both English and French.
 - Navigation menu with links to home, donation page, and Discord.
+
+## `templates/error.html`
+
+The HTML template for the error page. 
 
 ## `static/`
 
