@@ -1,45 +1,37 @@
 <!DOCTYPE html>
 <html lang="en">
+</body>
+
+</html>
 
 <head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="../static/style.css">
   <link rel="shortcut icon" href="../static/logo.png">
-  <!-- <script src="https://unpkg.com/htmx.org@2.0.3"
-    integrity="sha384-0895/pl2MU10Hqc6jd4RvrthNlDiE9U1tWmX7WRESftEDRosgxNsQG/Ze9YMRzHq"
-    crossorigin="anonymous"></script> -->
-  <meta charset="utf-8">
   <title>TubeGrab</title>
 </head>
-  <div id="navigation-container">
-    <img src="../static/logo.png" alt="logo">
-    <ul>
-      <li>
-        <a href="index.html" class="english">Home</a>
-      </li>
-      <li>
-        <a href="index.html" class="french">Accueil</a>
-      </li>
-      <li>
-        <a href="https://www.paypal.com/donate/?hosted_button_id=ZL6R6GB7QM32G" target="_blank"
-          class="english">Donation</a>
-      </li>
-      <li>
-        <a href="https://www.paypal.com/donate/?hosted_button_id=ZL6R6GB7QM32G" target="_blank" class="french">Dons</a>
-      </li>
-      <li>
-        <a href="https://discord.gg/BEJHYj2Z4r">Discord</a>
-      </li>
-      <li>
-        <select id='choice_langue' name="langue">
-          <option value="english">🇬🇧</option>
-          <option value="french">🇫🇷</option>
-        </select>
-      </li>
-    </ul>
-  </div>
-</nav>
 
 <body>
+  <header>
+    <nav>
+      <img src="../static/logo.png" alt="logo">
+      <ul>
+        <li><a href="{{ url_for('url') }}" class="english">Home</a></li>
+        <li><a href="{{ url_for('url') }}" class="french">Accueil</a></li>
+        <li><a href="https://www.buymeacoffee.com/TubeGrab" target="_blank" class="english">Donation</a></li>
+        <li><a href="https://www.buymeacoffee.com/TubeGrab" target="_blank" class="french">Dons</a></li>
+        <li><a href="https://discord.gg/BEJHYj2Z4r" target="_blank" class="english">Join the Discord</a></li>
+        <li><a href="https://discord.gg/BEJHYj2Z4r" target="_blank" class="french">Rejoignez le Discord</a></li>
+        <li>
+          <select id='choice_langue' name="langue">
+            <option value="english">🇬🇧</option>
+            <option value="french">🇫🇷</option>
+          </select>
+        </li>
+      </ul>
+    </nav>
+  </header>
   <main>
     <div id="zone_input">
       <form method="post" action="/">
@@ -54,6 +46,7 @@
         <button type="submit" id="button-convert">Convert</button>
         <!-- <progress id='progress' value='0' max='100'></progress> -->
       </form>
+      <p id="HD-error">{{ error_message_no_HD }}</p>
     </div>
     <div class="container-mobile">
       <div class="container-top">
@@ -132,7 +125,7 @@
     <div class="footer-bottom">
       <a href="https://github.com/lappatdugain/ytapp" target="_blank"><img src="../static/file-svg/logo-github.svg"
           alt="logo github"></a>
-      &copy; copyright 2024 TubeGrabe
+      &copy; copyright 2024 TubeGrab
     </div>
   </footer>
   </footer>

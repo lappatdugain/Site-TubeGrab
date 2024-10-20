@@ -77,7 +77,22 @@ def url():
 
                         logging.info(f"MP4 download complete: {mp4}")
 
-                        # Send the MP3 file to the user
+                        # Send the MP4 file to the user
+                        return send_file(mp4, as_attachment=True)
+
+                    if conversion_type == 'HD':
+                        logging.info(f"Download completed for URL: {url_video} made on : {date} types : video")
+                        flux = yt.streams.get_by_itag(299)
+                        if flux == None:
+                            return render_template("index.html", error_message_no_HD="HD not available for this video")
+                        flux.download(output_path=tmp_file, filename=f'{title}.mp4')
+
+                        # Création du chemin d'accès pour le fichier
+                        mp4 = os.path.join(tmp_file, f'{title}.mp4')
+
+                        logging.info(f"MP4 download complete: {mp4}")
+
+                        # Send the MP4 file to the user
                         return send_file(mp4, as_attachment=True)
 
                 else:

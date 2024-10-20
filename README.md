@@ -35,7 +35,7 @@ TubeGrabe is a Flask-based web application that allows users to download YouTube
 
 ## Usage
 
-1. Open your web browser and go to `currently undefined`.
+1. Open your web browser and go to `www.[currently undefined]`.
 2. Enter the URL of the YouTube video you want to download.
 3. Choose the desired format (MP3 or MP4).
 4. Click on the "Convert" button to start the download.
@@ -69,12 +69,12 @@ The application logs important events and errors to a file named `LogsDownload.l
 
 ## License
 
-This project is open source and available under the [MIT License](LICENSE).
+This project is open source and available under the [GPL-3.0 license](LICENSE).
 
 ## Contact
 
-- Discord: [Join our Discord](https://discord.gg/BEJHYj2Z4r)
-- Email: [Contact Us](mailto:yousound.xy05v@slmails.com?subject=info%20ytapp)
+- Discord: [Join our Discord](https://discord.gg/qS2P3tqbp2)
+- Email: [Contact Us](mailto:tubegrab.0bxdz@passinbox.com?subject=info%20TubeGrab)
 
 ## Donation
 
