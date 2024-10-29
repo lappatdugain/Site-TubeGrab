@@ -10,7 +10,6 @@ body {
 
 nav{
   background-color: #474646;
-  padding: 20px;
   display: flex;
   justify-content: space-between;
   box-sizing: border-box;

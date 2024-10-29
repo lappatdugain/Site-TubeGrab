@@ -19,7 +19,8 @@ app = Flask(__name__)
 
 @app.route("/", methods=['POST', 'GET'])
 def url():
-    date = datetime.today().strftime("%Y-%m-%d %H:%M")
+    full_date = datetime.today().strftime("%Y-%m-%d %H:%M")
+    date= datetime.today().strftime("%Y-%m-%d")
     logging.basicConfig(filename=f'./TubeGrab/Log/LogsDownload-{date}.log', level=logging.INFO)
 
     def progression(stream, chunk, bytes_remaining):
@@ -47,7 +48,7 @@ def url():
                     logging.info(f"Changing was effected on \n Original title : {video.title} \n New title : {edit_title}")
 
                     if conversion_type == 'mp3':
-                        logging.info(f"Download completed for URL: {url_form} made on : {date} types : audio (mp3)")
+                        logging.info(f"Download completed for URL: {url_form} made on : {full_date} types : audio (mp3)")
                         audio_steams = video.streams.get_audio_only()
                         audio_steams.download(output_path=tmp_file, filename=f'{edit_title}.mp4')
                         audio_path = os.path.join(tmp_file, f'{edit_title}.mp3')
@@ -65,7 +66,7 @@ def url():
 
 
                     if conversion_type == 'mp4':
-                        logging.info(f"Download completed for URL: {url_form} made on : {date} types : video (mp4)")
+                        logging.info(f"Download completed for URL: {url_form} made on : {full_date} types : video (mp4)")
                         video_steams = video.streams.get_highest_resolution()
                         video_steams.download(output_path=tmp_file, filename=f'{edit_title}.mp4')
                         video_path = os.path.join(tmp_file, f'{edit_title}.mp4')
@@ -76,7 +77,7 @@ def url():
                         return send_file(video_path, as_attachment=True)
 
                     if conversion_type == 'HD':
-                        logging.info(f"Download completed for URL: {url_form} made on : {date} types : video (HD)")
+                        logging.info(f"Download completed for URL: {url_form} made on : {full_date} types : video (HD)")
                         HD_video_steams=video.streams.filter(res="1080p",mime_type="video/mp4")
                         if not HD_video_steams:
                             return render_template("index.html", error_message_no_HD="HD not available for this video")
