@@ -233,6 +233,15 @@ form {
   height: 250px;
 }
 
+#error{
+  background-color: #880b00f6;
+  color: #ffffff;
+  text-align: center;
+  padding-top: 20%;
+  height: 50vh;
+  width: 100vw;;
+}
+
 @media screen and (max-width:900px) {
 
   #zone_input {

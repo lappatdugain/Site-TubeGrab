@@ -30,7 +30,7 @@ TubeGrabe is a Flask-based web application that allows users to download YouTube
 3. Run the application:
 
     ```bash
-    python main.py
+    python app.py
     ```
 
 ## Usage

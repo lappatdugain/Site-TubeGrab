@@ -1,13 +1,14 @@
 import logging
+from datetime import datetime
+import time
+
 import tempfile
-from venv import logging
+import zipfile
 
 from flask import Flask, render_template, flash, request, url_for, redirect, send_file
 
-from pytubefix import YouTube
+from pytubefix import YouTube, Playlist
 from moviepy.editor import *
-from datetime import datetime
-import time
 
 app = Flask(__name__)
 
@@ -18,7 +19,8 @@ app = Flask(__name__)
 
 @app.route("/", methods=['POST', 'GET'])
 def url():
-    logging.basicConfig(filename='./TubeGrab/Log/LogsDownload.log', level=logging.INFO)
+    date = datetime.today().strftime("%Y-%m-%d %H:%M")
+    logging.basicConfig(filename=f'./TubeGrab/Log/LogsDownload-{date}.log', level=logging.INFO)
 
     def progression(stream, chunk, bytes_remaining):
         bytes_downloaded = stream.filesize - bytes_remaining
@@ -27,83 +29,70 @@ def url():
 
     try:
         if request.method == 'POST':
-            date = datetime.today().strftime("%Y-%m-%d %H:%M")
-
-            url_video = request.form['url']
+            url_form = request.form['url']
             conversion_type = request.form['conversion_type']
-            print(f"URL submitted: {url_video}")
-            logging.info(f"URL submitted: {url_video}")
+            logging.info(f"URL submitted: {url_form}")
 
-            yt = YouTube(url_video)
-            yt.register_on_progress_callback(progression)
-            title = yt.title
-
-            # Handle special characters in the video title
-            caractere_speciaux = ['/', '\\', ':', '*', '?', '"', '<', '>', '|', '&', '=', '?', '%', '『』', '「」']
-            for caractereSpecial in caractere_speciaux:
-                title = title.replace(caractereSpecial, '_')
-            logging.info(f"Changing was effected on \n Original title : {yt.title} \n New title : {title}")
-
-            # Création d'un répertoire tmp
             with tempfile.TemporaryDirectory() as tmp_file:
-                # Recuperation de l'URL youtube
-                flux = yt.streams
+                if conversion_type in ["mp3", "mp4", "HD"]:               
+                    video = YouTube(url_form)
+                    print("video : ",url_form)
+                    title_video = video.title
+                    video.register_on_progress_callback(progression)
+            
+                    # Handle special characters in the video title
+                    caractere_speciaux = ['/', '\\', ':', '*', '?', '"', '<', '>', '|', '&', '=', '?', '%', '『』', '「」']
+                    for caractereSpecial in caractere_speciaux:
+                        edit_title = title_video.replace(caractereSpecial, '_')
+                    logging.info(f"Changing was effected on \n Original title : {video.title} \n New title : {edit_title}")
 
-                if flux:
                     if conversion_type == 'mp3':
-                        logging.info(f"Download completed for URL: {url_video} made on : {date} types : audio")
-                        flux = yt.streams.get_audio_only()
-                        flux.download(output_path=tmp_file, filename=f'{title}.mp4')
+                        logging.info(f"Download completed for URL: {url_form} made on : {date} types : audio (mp3)")
+                        audio_steams = video.streams.get_audio_only()
+                        audio_steams.download(output_path=tmp_file, filename=f'{edit_title}.mp4')
+                        audio_path = os.path.join(tmp_file, f'{edit_title}.mp3')
 
                         # Convert MP4 to MP3
-                        mp3 = os.path.join(tmp_file, f'{title}.mp3')
-                        with AudioFileClip(os.path.join(tmp_file, f'{title}.mp4')) as video:
-                            video.write_audiofile(mp3)
+                        with AudioFileClip(os.path.join(tmp_file, f'{edit_title}.mp4')) as audio:
+                            audio.write_audiofile(audio_path)
                         """progression(flux)"""
                         
-                        logging.info(f"MP3 download complete: {mp3}")
+                        logging.info(f"MP3 download complete: {audio_path}")
 
                         # Send the MP3 file to the user
-                        return send_file(mp3, as_attachment=True)
+                        return send_file(audio_path, as_attachment=True)
+
 
 
                     if conversion_type == 'mp4':
-                        logging.info(f"Download completed for URL: {url_video} made on : {date} types : video")
-                        flux = yt.streams.get_highest_resolution()
-                        flux.download(output_path=tmp_file, filename=f'{title}.mp4')
+                        logging.info(f"Download completed for URL: {url_form} made on : {date} types : video (mp4)")
+                        video_steams = video.streams.get_highest_resolution()
+                        video_steams.download(output_path=tmp_file, filename=f'{edit_title}.mp4')
+                        video_path = os.path.join(tmp_file, f'{edit_title}.mp4')
 
-                        # Création du chemin d'accès pour le fichier
-                        mp4 = os.path.join(tmp_file, f'{title}.mp4')
-
-                        logging.info(f"MP4 download complete: {mp4}")
+                        logging.info(f"MP4 download complete: {video_path}")
 
                         # Send the MP4 file to the user
-                        return send_file(mp4, as_attachment=True)
+                        return send_file(video_path, as_attachment=True)
 
                     if conversion_type == 'HD':
-                        logging.info(f"Download completed for URL: {url_video} made on : {date} types : video")
-                        flux = yt.streams.get_by_itag(299)
-                        if flux == None:
+                        logging.info(f"Download completed for URL: {url_form} made on : {date} types : video (HD)")
+                        HD_video_steams=video.streams.filter(res="1080p",mime_type="video/mp4")
+                        if not HD_video_steams:
                             return render_template("index.html", error_message_no_HD="HD not available for this video")
-                        flux.download(output_path=tmp_file, filename=f'{title}.mp4')
+                        HD_video_steams.first().download(output_path=tmp_file, filename=f'{edit_title}.mp4')
+                        HD_video_path = os.path.join(tmp_file, f'{edit_title}.mp4')
 
-                        # Création du chemin d'accès pour le fichier
-                        mp4 = os.path.join(tmp_file, f'{title}.mp4')
-
-                        logging.info(f"MP4 download complete: {mp4}")
+                        logging.info(f"MP4(HD) download complete: {HD_video_path}")
 
                         # Send the MP4 file to the user
-                        return send_file(mp4, as_attachment=True)
-
-                else:
-                    logging.warning(f"No flux found for URL: {url_video}")
+                        return send_file(HD_video_path, as_attachment=True)
 
         return render_template("index.html")
 
     except Exception as e:
         print(e)
         return render_template("error.html",error_message =e)
-
 
 
 
