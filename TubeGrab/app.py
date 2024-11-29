@@ -4,6 +4,7 @@ import time
 
 import tempfile
 import zipfile
+from venv import logging
 
 from flask import Flask, render_template, flash, request, url_for, redirect, send_file
 
@@ -21,8 +22,7 @@ app = Flask(__name__)
 def url():
     full_date = datetime.today().strftime("%Y-%m-%d %H:%M")
     date= datetime.today().strftime("%Y-%m-%d")
-    logging.basicConfig(filename=f'./TubeGrab/Log/LogsDownload-{date}.log', level=logging.INFO)
-
+    logging.basicConfig(filename=f'./Site-TubeGrab//TubeGrab/Log/LogsDownload-{date}.log',encoding="utf-8",level=logging.INFO)
     def progression(stream, chunk, bytes_remaining):
         bytes_downloaded = stream.filesize - bytes_remaining
         percent = bytes_downloaded * 100 / stream.filesize
@@ -80,6 +80,7 @@ def url():
                         logging.info(f"Download completed for URL: {url_form} made on : {full_date} types : video (HD)")
                         HD_video_steams=video.streams.filter(res="1080p",mime_type="video/mp4")
                         if not HD_video_steams:
+                            logging.warning("HD not available for this video")
                             return render_template("index.html", error_message_no_HD="HD not available for this video")
                         HD_video_steams.first().download(output_path=tmp_file, filename=f'{edit_title}.mp4')
                         HD_video_path = os.path.join(tmp_file, f'{edit_title}.mp4')
@@ -99,4 +100,4 @@ def url():
 
 
 if __name__ == "__main__":
-    app.run(debug=True,port=5500)
+    app.run(debug=True,port=2222)
