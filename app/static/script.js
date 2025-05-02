@@ -30,3 +30,31 @@ document.addEventListener("DOMContentLoaded", function () {
     // Appeler la fonction pour définir l'état initial
     basculerVisibiliteFormulaire();
 });
+
+document.getElementById('choice_mp3_mp4').addEventListener('change', function (e) {
+    const urlInput = document.getElementById('url');
+    urlInput.value = '';
+    
+
+    var elementsAlert = document.getElementsByClassName("alert-warning");
+    for (var i = 0; i < elementsAlert.length; i++) {
+        elementsAlert[i].style.display = "none";
+    }
+    
+});
+
+
+$(function () {
+    // Get stored value or default to empty string
+    var storedValue = localStorage.getItem('choice_mp3_mp4') || '';
+
+    // Set stored value when page loads
+    $('#choice_mp3_mp4').val(storedValue);
+
+    // Store current value and reload page on change
+    $('#choice_mp3_mp4').on('change', function () {
+        var currValue = $(this).val();
+        localStorage.setItem('choice_mp3_mp4', currValue);
+        location.reload();
+    });
+});

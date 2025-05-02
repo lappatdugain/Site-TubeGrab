@@ -5,11 +5,15 @@ TubeGrabe is a Flask-based web application that allows users to download YouTube
 
 ## Features
 
-- Download YouTube videos in MP3 or MP4 format.
+- Download YouTube videos in 
+    - audio(mp3) 
+    - video and autio (mp4)
+    -HD video without audio(mp4)
 - User-friendly interface.
 - Free to use with no advertisements.
 - No data collection or commercial cookies.
 - Safe downloads.
+- Open-source application
 
 ## Installation
 

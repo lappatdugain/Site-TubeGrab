@@ -22,7 +22,7 @@
         <li><a href="https://www.buymeacoffee.com/TubeGrab" target="_blank" class="english">Donation</a></li>
         <li><a href="https://www.buymeacoffee.com/TubeGrab" target="_blank" class="french">Dons</a></li>
         <li><a href="https://discord.gg/BEJHYj2Z4r" target="_blank" class="english">Join the Discord</a></li>
-        <li><a href="https://discord.gg/BEJHYj2Z4r" target="_blank" class="french">Rejoignez le Discord</a></li>
+        <li style="padding-right: 40px;"><a href="https://discord.gg/BEJHYj2Z4r" target="_blank" class="french">Rejoignez le Discord</a></li>
         <li>
           <select id='choice_langue' name="langue">
             <option value="english">🇬🇧</option>
@@ -34,20 +34,30 @@
   </header>
   <main>
     <div id="zone_input">
-      <form method="post" action="/">
+      <h2 class="french">
+        Collez ici un lien YouTube à convertir en MP3, MP4 ou HD.
+      </h2>
+      <p class="french">
+        Entrez un lien YouTube valide, choisissez un format, puis cliquez sur "Convert".
+      </p>
+      <h2 class="english">
+        Paste here a YouTube link to convert to MP3, MP4 or HD.
+      </h2>
+      <p class="english">
+        Enter a valid YouTube link, choose a format, then click “Convert”.
+      </p>         
+      <form method="post" action="/" id="myForm">
         <input type="url" name="url" id="url" placeholder="https://youtube.com/watch?v=nhWyu4LEUtA" autocomplete="off"
           required>
-        <select id='choice_mp3_mp4' name="conversion_type">
-          <option value="mp3">audio (mp3)</option>
-          <option value="mp4">video (mp4)</option>
-          <option value="HD">HD (no audio)</option>
-          <!-- <option value="playlist">playlist (mp3)</option> -->
-        </select>
+          <select id="choice_mp3_mp4" name="conversion_type">
+            <option value="mp3" data-refresh="true">audio (mp3)</option>
+            <option value="mp4" data-refresh="true">video (mp4)</option>
+            <option value="HD" data-refresh="true">HD (no audio)</option>
+          </select>          
         <button type="submit" id="button-convert">Convert</button>
-        <!-- <progress id='progress' value='0' max='100'></progress> -->
       </form>
-      <p id="HD-error">{{ error_message_no_HD }}</p>
-    </div>
+        <div class="alert-warning">{{ error_message_no_HD }}</div>
+    </div> 
     <div class="container-mobile">
       <div class="container-top">
         <div class="box-1">
@@ -125,7 +135,7 @@
     <div class="footer-bottom">
       <a href="https://github.com/lappatdugain/Site-TubeGrab" target="_blank"><img src="../static/file-svg/logo-github.svg"
           alt="logo github"></a>
-      &copy; copyright 2024 TubeGrab
+      &copy; copyright 2025 TubeGrab v3.4
     </div>
   </footer>
   </footer>

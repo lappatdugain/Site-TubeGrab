@@ -17,10 +17,10 @@ lib64
 pyvenv.cfg
 
 # Ignore specific directory in web-site and Discord-bot
-/TubeGrab/__pycache__/
-/TubeGrab/Log/
+/Log/
 /documentations/
-/test/
+/tests/
+__pycache__
 # Compiled source #
 *.com
 *.class
@@ -38,5 +38,6 @@ pyvenv.cfg
 *.rar
 *.tar
 *.zip
+.pyc
 
 
