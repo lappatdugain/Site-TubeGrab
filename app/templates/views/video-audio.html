@@ -1,0 +1,42 @@
+{% extends "./views/base.html" %}
+
+{% block title %}TubeGrab | Accueil{% endblock %}
+
+
+{% block content %}
+<div id="zone_input">
+    <h2 class="french">
+        Collez ici un lien YouTube à convertir en MP3, MP4 ou HD.
+    </h2>
+    <p class="french">
+        Entrez un lien YouTube valide, choisissez un format, puis cliquez sur "Convert".
+    </p>
+    <h2 class="english">
+        Paste here a YouTube link to convert to MP3, MP4 or HD.
+    </h2>
+    <p class="english">
+        Enter a valid YouTube link, choose a format, then click "Convert".
+    </p>
+    <form method="post" action="/video-audio" id="downloadForm">
+        <input type="url" name="url" id="url" placeholder="https://youtube.com/watch?v=nhWyu4LEUtA" autocomplete="off"
+            required>
+        <select id="choice_mp3_mp4" name="conversion_type">
+            <option value="mp3" data-refresh="true">audio (mp3)</option>
+            <option value="mp4" data-refresh="true">video (mp4)</option>
+            <option value="HD" data-refresh="true">HD (no audio)</option>
+        </select>
+        <button type="submit" id="button-convert">Convert</button>
+    </form>
+    <div class="alert-warning">{{ error_message_no_HD }}</div>
+</div>
+<div class="donate-support">
+    <div id="donate-support">
+        <h3 class="english">Support the project</h3>
+        <h3 class="french">Soutenir le projet</h3>
+        <p class="english">If you like the tool and want to support its development, you can make a donation. 💙</p>
+        <p class="french">Si vous appréciez cet outil et souhaitez soutenir son développement, vous pouvez faire un don.
+            💙</p>
+        <a href="https://www.buymeacoffee.com/TubeGrab" class="donate-button" target="_blank">☕ Donate</a>
+    </div>
+</div>
+{% endblock %}

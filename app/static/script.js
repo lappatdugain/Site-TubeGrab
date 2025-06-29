@@ -1,3 +1,16 @@
+
+// Sélectionner l'élément avec la classe "menu-hamburger".
+const menuHamburger = document.querySelector(".menu-hamburger");
+// Sélectionner l'élément avec la classe "nav-liens".
+const navLiens = document.querySelector(".nav-liens");
+// Ajouter un écouteur d'événements "click" à l'icône de menu hamburger.
+menuHamburger.addEventListener('click', () => {
+  // Au clic sur l'icône, ajouter ou supprimer la classe "mobile-menu" à l'élément avec la classe "nav-liens".
+  // Cela permettra d'afficher ou de masquer le menu de navigation sur les appareils mobiles.
+  navLiens.classList.toggle('mobile-menu');
+});
+
+
 document.addEventListener("DOMContentLoaded", function () {
     // Fonction pour changer la visibilité des formulaires en fonction du choix dans la liste déroulante
     function basculerVisibiliteFormulaire() {
@@ -58,3 +71,5 @@ $(function () {
         location.reload();
     });
 });
+
+

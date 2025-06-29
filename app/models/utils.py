@@ -5,7 +5,7 @@ import logging
 
 def is_mp3(url, video_type, date, title, tmp_path, video):
     date= datetime.today().strftime("%Y-%m-%d")
-    logging.basicConfig(filename=f'./app/Log/LogsDownload-{date}.log',encoding="utf-8",level=logging.INFO)
+    logging.basicConfig(filename=f'../app/Log/LogsDownload-{date}.log',encoding="utf-8",level=logging.INFO)
     logging.getLogger('werkzeug').disabled = True
     MP3_video_steams=video.streams.get_audio_only()
     if MP3_video_steams is None:
@@ -16,7 +16,7 @@ def is_mp3(url, video_type, date, title, tmp_path, video):
 
 def is_mp4(url, video_type, date, title, tmp_path, video):
     date= datetime.today().strftime("%Y-%m-%d")
-    logging.basicConfig(filename=f'./app/Log/LogsDownload-{date}.log',encoding="utf-8",level=logging.INFO)
+    logging.basicConfig(filename=f'../app/Log/LogsDownload-{date}.log',encoding="utf-8",level=logging.INFO)
     logging.getLogger('werkzeug').disabled = True
     MP4_video_steams=video.streams.get_highest_resolution()
     if MP4_video_steams is None:
@@ -27,7 +27,7 @@ def is_mp4(url, video_type, date, title, tmp_path, video):
 
 def is_HD(url, video_type, date, title, tmp_path, video):
     date= datetime.today().strftime("%Y-%m-%d")
-    logging.basicConfig(filename=f'./app/Log/LogsDownload-{date}.log',encoding="utf-8",level=logging.INFO)
+    logging.basicConfig(filename=f'../app/Log/LogsDownload-{date}.log',encoding="utf-8",level=logging.INFO)
     logging.getLogger('werkzeug').disabled = True
     HD_video_steams=video.streams.filter(res="1080p",mime_type="video/mp4").first()
     if HD_video_steams is None:

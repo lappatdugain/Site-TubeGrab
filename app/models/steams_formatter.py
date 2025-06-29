@@ -5,14 +5,14 @@ import logging
 from moviepy import *
 from flask import Flask, render_template, flash, request, url_for, redirect, send_file
 
-from media_formatter import is_HD, is_mp4, is_mp3
+from models import is_HD, is_mp4, is_mp3
 
 video_type_func = {'mp3': is_mp3, 'mp4': is_mp4, 'HD': is_HD}
 
 
 def download_steams(url, video_type, date, title, tmp_path, video):
     date= datetime.today().strftime("%Y-%m-%d")
-    logging.basicConfig(filename=f'./app/Log/LogsDownload-{date}.log',encoding="utf-8",level=logging.INFO)
+    logging.basicConfig(filename=f'../app/Log/LogsDownload-{date}.log',encoding="utf-8",level=logging.INFO)
     logging.getLogger('werkzeug').disabled = True
     result=video_steams=video_type_func[video_type](url, video_type, date, title, tmp_path, video)
     if result:

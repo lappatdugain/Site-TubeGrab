@@ -1,19 +1,20 @@
 
 # TubeGrabe
 
-TubeGrabe is a Flask-based web application that allows users to download YouTube videos as MP3 or MP4 files. The service is free, without advertising, and respects user privacy by not collecting any data.
+**TubeGrab** is a Flask-based web application that allows users to download YouTube videos in various formats. It is free, ad-free, privacy-friendly, and open source.
 
 ## Features
 
-- Download YouTube videos in 
-    - audio(mp3) 
-    - video and autio (mp4)
-    -HD video without audio(mp4)
-- User-friendly interface.
-- Free to use with no advertisements.
-- No data collection or commercial cookies.
-- Safe downloads.
-- Open-source application
+- Download YouTube content in:
+  - MP3 (audio only)
+  - MP4 (video + audio)
+  - MP4 HD (video only)
+  - Full playlist downloads in a single ZIP archive
+- Clean and responsive user interface
+- No advertisements or tracking
+- No data collection or commercial cookies
+- Safe downloads
+- Open-source and community-supported
 
 ## Installation
 
@@ -22,7 +23,7 @@ TubeGrabe is a Flask-based web application that allows users to download YouTube
 1. Clone the repository:
 
     ```bash
-    git clone https://github.com/lappatdugain/https://github.com/lappatdugain/Site-TubeGrab.git
+    git clone https://github.com/lappatdugain/Site-TubeGrab.git
     cd Site-TubeGrab
     ```
 
@@ -40,37 +41,37 @@ TubeGrabe is a Flask-based web application that allows users to download YouTube
 ## Usage
 
 1. Open your web browser and go to `www.[currently undefined]`.
-2. Enter the URL of the YouTube video you want to download.
-3. Choose the desired format (MP3 or MP4).
-4. Click on the "Convert" button to start the download.
-
+2. Choose a tool:
+    - Video & Audio: for individual video downloads
+    - Playlist: for playlist download and ZIP export
+3. Paste the YouTube URL.
+4. Select your preferred format.
+5. Click Convert or Download
 ## Project Structure
 
-## `TubeGrab/app.py`
-
-The main entry point of the Flask application. It runs the server and defines the routes.
-Contains the Flask views and logic for handling URL submissions and file conversions.
-
-## `templates/index.html`
-
-The HTML template for the main page. It includes:
-
-- A form to submit the YouTube URL and select the conversion type (MP3 or MP4).
-- Information about the service in both English and French.
-- Navigation menu with links to home, donation page, and Discord.
-
-## `templates/error.html`
-
-The HTML template for the error page. 
-
-## `static/`
-
-Contains static files such as CSS, JavaScript, images, and SVG icons used in the web application.
-
+```
+Site-TubeGrab/
+│
+├── app.py                       # Main application entry (Flask)
+├── models/                      # Business logic (downloaders, validators, etc.)
+├── templates/
+│   ├── base.html                # Base layout
+│   ├── video-audio.html         # Individual video/audio download page
+│   ├── playlist.html            # Playlist ZIP download page
+│   └── error.html               # Error handling page
+│
+├── static/
+│   ├── css/                      # Stylesheets
+│   ├── images/                   # Image assets
+│   └── file-svg/                 # SVG icons
+│
+└── app/Log/                      # Download logs (e.g. LogsDownload-2025-06-26.log)
+```
 ## Logging
-
-The application logs important events and errors to a file named `LogsDownload.log`.
-
+The app automatically logs daily download activity and errors in files named like:
+```
+app/Log/LogsDownload-YYYY-MM-DD.log
+```
 ## License
 
 This project is open source and available under the [GPL-3.0 license](LICENSE).
