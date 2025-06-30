@@ -1,7 +1,24 @@
  # Changelog
 All notable changes to this project will be documented in this file.
 
+## [1.1.0] - 2025-06-30
 
+### Added
+- New `donation.html` page displaying Bitcoin address and BuyMeACoffee QR code.
+- Added `404.html` custom error page with message and return-to-home link.
+- Introduced `in_build.html` placeholder view for future features.
+
+### Changed
+- Enhanced `playlist.html` functionality: now supports audio (MP3) and video (MP4) downloads for playlists.
+- Removed donation sections from `video-audio.html` and `playlist.html` pages to keep the interface cleaner and less intrusive.
+- Language support removed — all templates and content are now English-only for simplification and consistency.
+
+### Removed
+- `error.html` view removed. Errors are now logged exclusively in `LogsDownload-*.log` for better monitoring and cleaner UI.
+
+### Fixed
+- Improved playlist ZIP packaging to handle both audio and video content.
+- Minor adjustments in navigation and footer for responsive layouts.
 
 ## [1.0.0] - 2025-06-26
 

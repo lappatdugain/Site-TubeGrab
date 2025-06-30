@@ -1,22 +1,31 @@
+# TubeGrab
 
-# TubeGrabe
+**TubeGrab** is a Flask-based web application that allows users to download YouTube videos and playlists in various formats. It is free, ad-free, privacy-friendly, and open source.
 
-**TubeGrab** is a Flask-based web application that allows users to download YouTube videos in various formats. It is free, ad-free, privacy-friendly, and open source.
+<!-- Optional badges -->
+![License](https://img.shields.io/github/license/lappatdugain/Site-TubeGrab)
+![Python](https://img.shields.io/badge/python-3.10%2B-blue)
+![Platform](https://img.shields.io/badge/platform-web--app-lightgrey)
 
+---
 ## Features
 
-- Download YouTube content in:
+- Download YouTube content as:
   - MP3 (audio only)
   - MP4 (video + audio)
   - MP4 HD (video only)
-  - Full playlist downloads in a single ZIP archive
+  - ZIP archives for full playlists
 - Clean and responsive user interface
-- No advertisements or tracking
-- No data collection or commercial cookies
+- No ads, no trackers, no user data collectio
 - Safe downloads
-- Open-source and community-supported
+- Open-source
 
 ## Installation
+
+### Prerequisites
+
+- Python 3.10 or newer
+- `pip` for package management
 
 ### Setup
 
@@ -27,28 +36,38 @@
     cd Site-TubeGrab
     ```
 
-2. Install dependencies :
+2. Install the dependencies:
+
     ```bash
     pip install -r requirements.txt 
     ```
 
-3. Run the application:
+3. Start the application:
 
     ```bash
     python app.py
     ```
 
+---
+
+---
+
 ## Usage
 
-1. Open your web browser and go to `www.[currently undefined]`.
-2. Choose a tool:
-    - Video & Audio: for individual video downloads
-    - Playlist: for playlist download and ZIP export
-3. Paste the YouTube URL.
-4. Select your preferred format.
-5. Click Convert or Download
-## Project Structure
+1. Launch your browser and navigate to:  
+   `http://127.0.0.1:5000` (or your server’s domain/IP)
 
+2. Select a tool:
+   - **Video & Audio** – download a single video in multiple formats
+   - **Playlist** – process and download entire playlists as ZIP
+
+3. Paste the YouTube URL.
+
+4. Choose your preferred format.
+
+5. Click **Convert** or **Download**.
+
+---
 ```
 Site-TubeGrab/
 │
@@ -67,6 +86,7 @@ Site-TubeGrab/
 │
 └── app/Log/                      # Download logs (e.g. LogsDownload-2025-06-26.log)
 ```
+
 ## Logging
 The app automatically logs daily download activity and errors in files named like:
 ```
@@ -74,15 +94,13 @@ app/Log/LogsDownload-YYYY-MM-DD.log
 ```
 ## License
 
-This project is open source and available under the [GPL-3.0 license](LICENSE).
-
+This project is licensed under the [GNU GPLv3](LICENSE).
 ## Contact
 
 - Discord: [Join our Discord](https://discord.gg/qS2P3tqbp2)
 - Email: [Contact Us](mailto:tubegrab.0bxdz@passinbox.com?subject=info%20TubeGrab)
 
-## Donation
-
-If you find this service useful, consider making a donation:
+##  Support
+If you find this project helpful, consider supporting it:
 
 - [Buy me a coffee](https://buymeacoffee.com/tubegrab)

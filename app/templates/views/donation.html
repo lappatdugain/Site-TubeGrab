@@ -1,0 +1,22 @@
+{% extends "./views/base.html" %}
+
+{% block title %}TubeGrab | Accueil{% endblock %}
+
+
+{% block content %}
+<div class="donation-container">
+    <div class="box-donation">
+        <h1>💖 Support TubeGrab</h1>
+        <p>Thank you for supporting this open-source project!</p>
+        <div class="btc">
+            <h3>Bitcoin Wallet Address</h3>
+            <p class="btc-address">bc1qcwkqpe35p5w78d5j2z6wy69m8ckuq7vgzmw5dh</p>
+        </div>
+        <div class="qrcode">
+            <h3>Buy Me a Coffee ☕</h3>
+            <img src="../../static/images/bmc_qr.png" alt="BuyMeACoffee QR Code">
+        </div>
+        <a href="https://www.buymeacoffee.com/TubeGrab" class="donate-button" target="_blank">☕ Donate</a>
+    </div>
+</div>
+{% endblock %}
