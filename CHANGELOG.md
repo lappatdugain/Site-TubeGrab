@@ -1,6 +1,22 @@
  # Changelog
 All notable changes to this project will be documented in this file.
 
+## [1.1.1] - 2025-07-09
+
+### Changed
+- Replaced all static and route URLs in templates with `url_for()` for better Flask compatibility and flexibility.
+- Updated view routing paths in `app.py`
+- Improved CSS for better responsive behavior and cleaner `<main>` layout styling.
+- Changed page titles for each template using Jinja block `{% block title %}` for clearer browser tab titles
+
+### Added
+- Created centralized logging module: `models/log.py`
+  - Introduced `setup_logging()` function to streamline daily log file creation and standardize formatting across views.
+
+### Fixed
+- Adjusted internal form actions to use, ensuring compatibility if routes change.
+
+
 ## [1.1.0] - 2025-06-30
 
 ### Added

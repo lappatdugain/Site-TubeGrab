@@ -90,7 +90,7 @@ Site-TubeGrab/
 ## Logging
 The app automatically logs daily download activity and errors in files named like:
 ```
-app/Log/LogsDownload-YYYY-MM-DD.log
+Log/LogsDownload-YYYY-MM-DD.log
 ```
 ## License
 
