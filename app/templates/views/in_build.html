@@ -6,9 +6,9 @@
 {% block content %}
 
     <div class="error404">
-        <img src="../../static/images/mascotte-build.png" alt="">
+        <img src="{{ url_for('static', filename='images/mascotte-build.png') }}" alt="">
         <p>Oops! The page you are looking for is currently under construction.</p>
-        <a href="/" class="donate-button">Back to Home</a>
+        <a href="{{ url_for('index') }}" class="button">Back to Home</a>
       </div>
 
 

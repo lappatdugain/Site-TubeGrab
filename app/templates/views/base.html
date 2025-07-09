@@ -7,25 +7,25 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="../../static/style.css">
-  <link rel="shortcut icon" href="../../static/images/logo-hight.png">
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+  <link rel="shortcut icon" href="{{ url_for('static', filename='images/logo-hight.png') }}">
   <title>{% block title %}TubeGrab{% endblock %}</title>
 </head>
 
 <body>
   <header>
     <nav>
-      <img id="nav-logo" src="../../static/images/logo.png" alt="logo">
+      <img id="nav-logo" src="{{ url_for('static', filename='images/logo.png') }}" alt="logo">
       <div class="nav-liens">
         <ul>
-          <li><a href="/" class="english">Home</a></li>
-          <li><a href="/video-audio" class="english">Video Convert</a></li>
-          <li><a href="/playlist" class="english">Playlist Convert</a></li>
-          <li><a href="donation" class="english">Donation</a></li>
+          <li><a href="{{ url_for('index') }}">Home</a></li>
+          <li><a href="{{ url_for('video_audio_download') }}">Video Convert</a></li>
+          <li><a href="{{ url_for('playlist_download') }}">Playlist Convert</a></li>
+          <li><a href="{{ url_for('donation') }}">Donation</a></li>     
         </ul>
       </div>
-      <img src="../../static/file-svg/menu.svg" alt="menu hamburger" class="menu-hamburger">
-
+      <img src="{{ url_for('static', filename='file-svg/menu.svg') }}" alt="menu hamburger" class="menu-hamburger">
+      
     </nav>
   </header>
   <main>
@@ -36,7 +36,7 @@
       <div class="footer-colonne">
         <h3>Contacts</h3>
         <li>
-          <a href="mailto :rlhpub.ahzh7@silomails.com subject=info ytapp" class="english">Contact me</a>
+          <a href="mailto :rlhpub.ahzh7@silomails.com subject=info ytapp" >Contact me</a>
         </li>
         <li>
           <a href="https://discord.gg/BEJHYj2Z4r">Discord</a>
@@ -44,18 +44,10 @@
       </div>
       <div class="footer-colonne">
         <h3>Menu</h3>
-        <li>
-          <a href="/" class="english">Home</a>
-        </li>
-        <li>
-          <a href="/video-audio" class="english">Video Convert</a>
-        </li>
-        <li>
-          <a href="/playlist" class="english">Playlist Convert</a>
-        </li>
-        <li>
-          <a href="/donation" class="english">Donation</a>
-        </li>
+        <li><a href="{{ url_for('index') }}">Home</a></li>
+        <li><a href="{{ url_for('video_audio_download') }}">Video Convert</a></li>
+        <li><a href="{{ url_for('playlist_download') }}">Playlist Convert</a></li>
+        <li><a href="{{ url_for('donation') }}">Donation</a></li>
       </div>
       <div class="footer-colonne">
         <h3>Support me</h3>
@@ -66,12 +58,13 @@
     </div>
     <div class="footer-bottom">
       <a href="https://github.com/lappatdugain/Site-TubeGrab" target="_blank"><img
-          src="../static/file-svg/logo-github.svg" alt="logo github"></a>
+          src="{{ url_for('static', filename='file-svg/logo-github.svg') }}" alt="logo github"></a>
       &copy; copyright 2025 TubeGrab v1.1.0
     </div>
+    <div>
+      <a href="{{ url_for('terms') }}">Terms of Service</a> | <a href="{{ url_for('privacy') }}">Privacy Policy</a>
+    </div>
   </footer>
-  </footer>
-  <script src="../static/script.js"></script>
+  <script src=  "{{ url_for('static', filename='script.js') }}"></script>
 </body>
-
 </html>

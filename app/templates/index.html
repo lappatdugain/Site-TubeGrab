@@ -1,51 +1,51 @@
 {% extends "./views/base.html" %}
 
-{% block title %}TubeGrab | Accueil{% endblock %}
+{% block title %}Home | TubeGrab{% endblock %}
 
 
 {% block content %}
-<div class="hero-section">
-    <h1 class="english">Download YouTube Videos as MP3 or MP4</h1>
-    <h2 class="english">Fast. Free. No ads. No registration.</h2>
-    <div id="hero-buttons" class="english">
-        <a href="/video-audio" class="donate-button">🎬 Convert a Video</a>
-        <a href="/playlist" class="donate-button">🎵 Convert a Playlist</a>
+<div class="home">
+    <h1 >Download YouTube Videos as MP3 or MP4</h1>
+    <h2 >Fast. Free. No ads. No registration.</h2>
+    <div id="home-buttons" >
+        <a href="{{ url_for('video_audio_download') }}" class="button">🎬 Convert a Video</a>
+        <a href="{{ url_for('playlist_download') }}" class="button">🎵 Convert a Playlist</a>
     </div>
 </div>
 
 <div class="container-mobile">
     <div class="container-top">
         <div class="box-1">
-            <img src="../static/file-svg/arrow-down-circle-outline.svg" alt="">
-            <h1 class="english">Free Service</h1>
-            <h2 class="english">My service is free and without advertising but if you want you can make a donation to me.</h2>
+            <img src="{{ url_for('static', filename='file-svg/arrow-down-circle-outline.svg') }}" alt="">
+            <h1 >Free Service</h1>
+            <h2 >My service is free and without advertising but if you want you can make a donation to me.</h2>
         </div>
         <div class="box-2">
-            <img src="../static/file-svg/ban.svg" alt="">
-            <h1 class="english">Your Privacy Matters</h1>
-            <h2 class="english">No data is collected on my website, and there are no commercial cookies in use.</h2>
+            <img src="{{ url_for('static', filename='file-svg/ban.svg') }}" alt="">
+            <h1 >Your Privacy Matters</h1>
+            <h2 >No data is collected on my website, and there are no commercial cookies in use.</h2>
         </div>
         <div class="box-3">
-            <img src="../static/file-svg/shield-checkmark.svg" alt="">
-            <h1 class="english">Safe Downloads</h1>
-            <h2 class="english">Downloads are safe and my service is open source.</h2>
+            <img src="{{ url_for('static', filename='file-svg/shield-checkmark.svg') }}" alt="">
+            <h1 >Safe Downloads</h1>
+            <h2 >Downloads are safe and my service is open source.</h2>
         </div>
     </div>
     <div class="container">
         <div class="box-4">
-            <img src="../static/file-svg/desktop.svg" alt="">
-            <h1 class="english">Accessibility</h1>
-            <h2 class="english">My services can be used on multiple devices</h2>
+            <img src="{{ url_for('static', filename='file-svg/desktop.svg') }}" alt="">
+            <h1 >Accessibility</h1>
+            <h2 >My services can be used on multiple devices</h2>
         </div>
         <div class="box-5">
-            <img src="../static/file-svg/sync-circle.svg" alt="">
-            <h1 class="english">Enjoy unlimited downloads</h1>
-            <h2 class="english">You have unlimited downloads</h2>
+            <img src="{{ url_for('static', filename='file-svg/sync-circle.svg') }}" alt="">
+            <h1 >Enjoy unlimited downloads</h1>
+            <h2 >You have unlimited downloads</h2>
         </div>
         <div class="box-6">
-            <img src="../static/file-svg/documents.svg" alt="">
-            <h1 class="english">MP3 and MP4 Formats</h1>
-            <h2 class="english">You have the option to choose between two file types: MP3 or MP4.</h2>
+            <img src="{{ url_for('static', filename='file-svg/documents.svg') }}" alt="">
+            <h1 >MP3 and MP4 Formats</h1>
+            <h2 >You have the option to choose between two file types: MP3 or MP4.</h2>
         </div>
     </div>
 </div>

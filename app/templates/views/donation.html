@@ -1,6 +1,6 @@
 {% extends "./views/base.html" %}
 
-{% block title %}TubeGrab | Accueil{% endblock %}
+{% block title %}Donation | TubeGrab{% endblock %}
 
 
 {% block content %}
@@ -14,9 +14,12 @@
         </div>
         <div class="qrcode">
             <h3>Buy Me a Coffee ☕</h3>
-            <img src="../../static/images/bmc_qr.png" alt="BuyMeACoffee QR Code">
+            <img src="{{ url_for('static', filename='images/bmc_qr.png') }}" alt="BuyMeACoffee QR Code">
         </div>
-        <a href="https://www.buymeacoffee.com/TubeGrab" class="donate-button" target="_blank">☕ Donate</a>
+        <div>
+            <img id="chibi-donation" src="{{ url_for('static', filename='images/Chibi-Sticker-Expressions-1.png') }}" width="20%" alt="images chibi">
+            <a href="https://www.buymeacoffee.com/TubeGrab" class="button" target="_blank">☕ Donate</a>
+        </div>
     </div>
 </div>
 {% endblock %}

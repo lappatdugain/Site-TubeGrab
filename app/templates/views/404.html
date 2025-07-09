@@ -1,14 +1,14 @@
 {% extends "./views/base.html" %}
 
-{% block title %}TubeGrab | Accueil{% endblock %}
+{% block title %}TubeGrab | 404{% endblock %}
 
 
 {% block content %}
 
     <div class="error404">
-        <img src="../../static/images/mascotte-404.png" alt="">
+        <img src="{{ url_for('static', filename='images/mascotte-404.png') }}" alt="">
         <p>Oops! The page you are looking for does not exist.</p>
-        <a href="/" class="donate-button">Back to Home</a>
+        <a href="{{ url_for('index') }}" class="button">Back to Home</a>
       </div>
 
 

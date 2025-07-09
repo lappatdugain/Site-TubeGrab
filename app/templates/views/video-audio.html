@@ -1,17 +1,17 @@
 {% extends "./views/base.html" %}
 
-{% block title %}TubeGrab | Accueil{% endblock %}
+{% block title %}Video and audio | TubeGrab{% endblock %}
 
 
 {% block content %}
 <div id="zone_input">
-    <h2 class="english">
+    <h1>
         Paste here a YouTube link to convert to MP3, MP4 or HD.
-    </h2>
-    <p class="english">
+    </h1>
+    <h2>
         Enter a valid YouTube link, choose a format, then click "Convert".
-    </p>
-    <form method="post" action="/video-audio" id="downloadForm">
+    </h2>
+    <form method="post" action="{{ url_for('video_audio_download') }}" id="downloadForm">
         <input type="url" name="url" id="url" placeholder="https://youtube.com/watch?v=nhWyu4LEUtA" autocomplete="off"
             required>
         <select id="choice_mp3_mp4" name="conversion_type">
@@ -21,6 +21,6 @@
         </select>
         <button type="submit" id="button-convert">Convert</button>
     </form>
-    <div class="alert-warning">{{ error_message_no_HD }}</div>
+    <div class="alert-warning"><p>{{ error_message_no_HD }}</p></div>
 </div>
 {% endblock %}

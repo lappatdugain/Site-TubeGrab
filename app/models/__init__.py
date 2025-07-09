@@ -18,3 +18,6 @@ from models.steams_formatter import download_steams
 # Title cleaner
 from models.clear_title import clear_up_title
 
+# Logging setup
+from models.log_config import setup_logging
+
