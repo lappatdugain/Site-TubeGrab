@@ -1,0 +1,28 @@
+{% extends "./views/base.html" %}
+
+{% block title %}Playlist | TubeGrab{% endblock %}
+
+
+{% block content %}
+<div id="zone_input">
+  <h1>
+    Your download is ready!
+  </h1>
+  <h2>
+    Click the button below to download your converted file.
+  </h2>
+  <a href="{{ url_for('download') }}" class="button" id="cool">
+    Download Now
+  </a>
+</div>
+<script>
+  const downloadLink = document.getElementById("cool");
+
+  downloadLink.addEventListener("click", () => {
+    // Attend quelques secondes avant redirection (pour laisser le temps au download)
+    setTimeout(() => {
+      window.location.href = "{{ url_for('index') }}";
+    }, 3000);  // 3 secondes d'attente avant retour à l'accueil
+  });
+</script>
+{% endblock %}

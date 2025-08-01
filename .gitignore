@@ -15,9 +15,10 @@ lib64
 # Ignore specific files in root
 *.log
 pyvenv.cfg
-
+*.wsgi
+*.conf
 # Ignore specific directory in web-site and Discord-bot
-/Log/
+Log/
 /documentations/
 /tests/
 __pycache__

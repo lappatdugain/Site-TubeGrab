@@ -13,7 +13,7 @@ video_type_func = {'mp3': is_mp3, 'mp4': is_mp4, 'HD': is_HD}
 
 def download_steams(url, video_type, date, title, tmp_path, video):
     
-    log_file=setup_logging()
+    setup_logging()
     
     result=video_steams=video_type_func[video_type](url, video_type, date, title, tmp_path, video)
     if result:

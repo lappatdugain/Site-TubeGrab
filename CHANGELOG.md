@@ -1,6 +1,24 @@
  # Changelog
 All notable changes to this project will be documented in this file.
 
+## [1.2.0] - 2025-08-01
+
+### Added
+- Introduced URL validation in video/playlist input forms to ensure correct YouTube URLs.
+- Added proper accent handling in titles — accents are now preserved instead of being stripped.
+- New template `ready.html` providing a waiting screen with a download button after processing.
+- Added `/ready` and `/download` routes for managing download flow via temporary directories.
+- Implemented cleanup mechanism to automatically delete temporary files older than 24 hours.
+
+### Changed
+- Improved UX by redirecting users to a "ready" state before download.
+- Refined download logic to improve stability and reduce browser-related timeout risks.
+
+### Upcoming
+- [WIP] Celery integration in progress to offload long download tasks to background workers and avoid Apache 504 Gateway Timeout errors.
+- Task ID management planned via cookies for async tracking.
+
+
 ## [1.1.1] - 2025-07-09
 
 ### Changed
